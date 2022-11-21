@@ -4,7 +4,8 @@ from calendar import HTMLCalendar
 from datetime import datetime
 
 # Create your views here.
-def home(request, year, month):
+def home(request, year=datetime.now().year, 
+         month=datetime.now().strftime('%B')):
     name = "Doha"
     
     # the context dictionary after home.html allows us to pass context from the backend to the frontend
@@ -29,6 +30,8 @@ def home(request, year, month):
     # get current time
     current_time = now.strftime('%I:%M:%S %p')
     
-    return render(request, 'home.html', {"fname": name, 
+    return render(request, 'events/home.html', {"fname": name, 
                              "year": year, "month": month, 
-                             "month_number": month_number, "cal": cal, "current_year": current_year, "current_time": current_time})
+                             "month_number": month_number, "cal": cal, 
+                             "current_year": current_year, 
+                             "current_time": current_time})
