@@ -10,4 +10,5 @@ urlpatterns = [
     # slugs: hyphen - and underscores _,
     # UUID: Universally unique identifier
     path('<int:year>/<str:month>', views.home, name="home"),
+    path('events', views.all_events, name="list-events"),
 ]

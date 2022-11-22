@@ -2,8 +2,10 @@ from django.shortcuts import render
 import calendar
 from calendar import HTMLCalendar
 from datetime import datetime
+from .models import Event
 
 # Create your views here.
+
 def home(request, year=datetime.now().year, 
          month=datetime.now().strftime('%B')):
     name = "Doha"
@@ -35,3 +37,9 @@ def home(request, year=datetime.now().year,
                              "month_number": month_number, "cal": cal, 
                              "current_year": current_year, 
                              "current_time": current_time})
+
+
+def all_events(request):
+    event_list = Event.objects.all()
+    return render(request, 'events/event_list.html',
+                  {'event_list': event_list})
