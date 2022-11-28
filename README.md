@@ -6,3 +6,6 @@
  * An Event will have a Venue
  * Members can signup 
  * Members can book an Event in a particular Venue
+
+ #### Screenshot
+ ![image](Social_Club_Website.png)
