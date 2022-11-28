@@ -3,7 +3,7 @@
 {% block content %}
     <html>
         <body>
-            <h1>Events</h1>
+            <h1>All Events</h1>
             <br>
             {% for event in event_list %}
             <div class="card">
@@ -41,6 +41,9 @@
                         
                     </ul>
                   </p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
                 </div>
             </div>
             <br>  
