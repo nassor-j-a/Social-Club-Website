@@ -8,6 +8,19 @@ from .forms import VenueForm, EventForm
 
 # Create your views here.
 
+#  Delete Venue
+def delete_venue(request, venue_id):
+    venue = Venue.objects.get(id=venue_id)
+    venue.delete()
+    return redirect('list-venues')
+
+# Delete Event
+def delete_event(request, event_id):
+    event = Event.objects.get(pk=event_id)
+    event.delete()
+    return redirect('list-events')
+
+
 def home(request, year=datetime.now().year, 
          month=datetime.now().strftime('%B')):
     name = "Doha"
