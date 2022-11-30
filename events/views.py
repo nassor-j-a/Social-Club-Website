@@ -10,9 +10,9 @@ from .forms import VenueForm, EventForm
 
 #  Delete Venue
 def delete_venue(request, venue_id):
-    venue = Venue.objects.get(id=venue_id)
+    venue = Venue.objects.get(pk=venue_id)
     venue.delete()
-    return redirect('list-venues')
+    return redirect('list-venue')
 
 # Delete Event
 def delete_event(request, event_id):
