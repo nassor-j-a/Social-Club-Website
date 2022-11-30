@@ -57,7 +57,13 @@ def home(request, year=datetime.now().year,
 def all_events(request):
     
     # fetching all items from the database model
-    event_list = Event.objects.all()
+    # .order_by('name') sorts the list by name in alphabetical order
+    event_list = Event.objects.all().order_by('name')
+    
+    # .order_by('-name')/.order_by('name').reverse() sorts the list by name in reverse alphabetical order
+    # event_list = Event.objects.all().order_by('-name')
+    # event_list = Event.objects.all().order_by('name').reverse()
+    
     return render(request, 'events/event_list.html',
                   {'event_list': event_list})
     
@@ -78,7 +84,17 @@ def add_venue(request):
 
 
 def list_venue(request):
-    venue_list = Venue.objects.all()
+    # .order_by('name') sorts the list by name in alphabetical order
+    venue_list = Venue.objects.all().order_by('name')
+    
+    # .order_by('?')sorts the list by name in random order
+    # venue_list = Venue.objects.all().order_by('?')
+    
+    # .order_by('-name')/.order_by('name').reverse() sorts the list by name in reverse alphabetical order
+    # venue_list = Venue.objects.all().order_by('-name')
+    # venue_list = Venue.objects.all().order_by('name').reverse()
+
+    
     return render(request, 'events/venue.html',
                     {'venue_list': venue_list})
     
